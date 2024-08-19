@@ -1,3 +1,4 @@
+const content_area = document.querySelector("#content");
 const myLibrary = [];
 
 function Book(title, author, pages, read){
@@ -7,6 +8,15 @@ function Book(title, author, pages, read){
     this.read = read;    
 }
 
-function addBookToLibrary() {
-    
+const defaultBook1 = new Book("The dance of the Dragons", "Jon Snow", 91, "not read");
+myLibrary.push(defaultBook1);
+display_books();
+
+function display_books(){
+
 }
+
+function addBookToLibrary() {
+
+}
+
