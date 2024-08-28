@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/base.css" />
     <script src="/Script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-    <h1>Welcome to the Library!</h1>
-    <div class="content"></div>
-</div>
-</body>
+      <div class="welcome">
+        <p>Welcome to the library!</p>
+        <button id="add">Add book</button>
+      </div>
+
+      <div class="content"></div>
+    </div>
+    <dialog>
+      <form method="dialog">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" />
+        <label for="author">Author:</label
+        ><input type="text" name="author" id="author" />
+        <label for="pages">Pages:</label>
+        <input type="number" name="pages" id="pages" />
+        <label for="read">Read Status:</label>
+        <input type="checkbox" name="read" id="read" />
+        <button id="close_button" type="reset">Close</button>
+        <button id="submit_button" type="submit">Submit</button>        
+      </form>
+    </dialog>
+  </body>
 </html>

@@ -44,12 +44,38 @@ function display_books() {
     })
 }
 
-function addBookToLibrary() {
-  const title = document.querySelector("title");
-  const author = document.querySelector("author");
-  const pages = document.querySelector("pages");
-  const read = document.querySelector("read");
-
-  const book1 = new Book(title, author, pages, read);
-  myLibrary.push(book1);
+function addBookToLibrary(title, author, pages, read) {
+  const new_book = new Book(title, author, pages, read);
+  myLibrary.push(new_book);
 }
+
+const dialog = document.querySelector("dialog")
+const add_button = document.querySelector("#add");
+const close_button = document.querySelector("#close_button");
+const submit_button = document.querySelector("#submit_button");
+const form = dialog.querySelector("form");
+
+add_button.addEventListener("click", ()=>{
+  dialog.showModal();
+});
+
+close_button.addEventListener("click", ()=>{
+  dialog.close();
+  });
+
+form.addEventListener("submit", (event)=>{
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  const add_book = new Book(formData.get("title"), formData.get("author"),
+  formData.get("pages"), formData.get("read") === "on")
+  myLibrary.push(add_book);
+
+  dialog.close();
+  display_books();
+    
+ } )
+
+
+
+
