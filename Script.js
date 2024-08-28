@@ -83,6 +83,8 @@ form.addEventListener("submit", (event)=>{
   dialog.close();
   display_books();
   myLibrary.pop();
+
+  form.reset();
     
  } )
 
