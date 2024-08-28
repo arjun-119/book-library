@@ -16,6 +16,7 @@ const defaultBook1 = new Book(
 );
 myLibrary.push(defaultBook1);
 display_books();
+myLibrary.pop();
 
 function display_books() {
     myLibrary.forEach(book=>{
@@ -81,6 +82,7 @@ form.addEventListener("submit", (event)=>{
 
   dialog.close();
   display_books();
+  myLibrary.pop();
     
  } )
 
