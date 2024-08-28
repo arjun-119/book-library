@@ -12,7 +12,7 @@ const defaultBook1 = new Book(
   "The dance of the Dragons",
   "Jon Snow",
   91,
-  "not read"
+  "Read"
 );
 myLibrary.push(defaultBook1);
 display_books();
@@ -30,7 +30,7 @@ function display_books() {
       author.textContent = `Author: ${book.author}`;
 
       const pages = document.createElement('div');
-      pages.textContent = `Pages: ${book.pages}`;
+      pages.textContent = `Pages: ${book.pages}`;     
 
       const read_status = document.createElement('div');
       read_status.textContent = `Read Status: ${book.read}`;
@@ -67,8 +67,16 @@ form.addEventListener("submit", (event)=>{
   event.preventDefault();
 
   const formData = new FormData(form);
+  let status = formData.get("read") === "on";
+
+  if(status === true)
+    status = "Read";
+  
+  else
+    status = "Not read";
+
   const add_book = new Book(formData.get("title"), formData.get("author"),
-  formData.get("pages"), formData.get("read") === "on")
+  formData.get("pages"), status);
   myLibrary.push(add_book);
 
   dialog.close();
