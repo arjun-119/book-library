@@ -13,7 +13,8 @@ myLibrary.push(defaultBook1);
 display_books();
 
 function display_books() {
-  myLibrary.forEach((book) => {
+  display_container.innerHTML = "";
+  myLibrary.forEach((book, index) => {
 
     const card = document.createElement("div");
     card.className = "card";
@@ -34,10 +35,19 @@ function display_books() {
       book.read = !book.read;
       read_status.textContent = book.read ? "Read" : "Not read";
     })
+
+    const remove_button = document.createElement("button");
+    remove_button.textContent = "Remove";
+
+    remove_button.addEventListener("click",()=>{
+      myLibrary.splice(index,1);
+      display_books();
+    })
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read_status);
+    card.appendChild(remove_button);
 
     display_container.appendChild(card);
   });
@@ -76,7 +86,6 @@ form.addEventListener("submit", (event) => {
   myLibrary.push(add_book);
 
   dialog.close();
-  display_container.innerHTML = "";
   display_books();
 
   form.reset();
